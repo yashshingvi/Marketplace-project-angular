@@ -1,0 +1,70 @@
+
+<div class="row">
+  <div class="col-6 mt-5">
+    <!-- <div class="form-group col-md-12">
+      <input type="text" class="form-control"  placeholder="Enter CropName" [(ngModel)]="searchedKeyword">
+    </div> -->
+
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-sm">  <i class="fa fa-search icon"></i></span>  
+      </div>
+      <input type="text" name="t1" [(ngModel)]="searchedKeyword" placeholder="Enter Crop Name To Search" required class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+    </div>
+<!-- <div class="card"> -->
+    <div class="border border-dark">
+     
+      <table class="table table-striped table-hover table-dark" id="tbl1" (mouseover)="changeText=true" (mouseout)="changeText=false">
+        <thead >
+          <tr>
+            <th>CropName</th>
+            <th>Base Price</th>
+            <th>quantity</th>
+            <th *ngIf="type == 'BIDDER'"></th>
+            <th>Status</th>
+            <th *ngIf="changeText"></th>
+            
+          </tr>
+        </thead>
+        <tbody id="white" class="table table-striped table-dark">
+          <tr *ngFor="let l of list | filter:searchedKeyword">
+            <td>{{ l.cropName }}</td>
+            <td>{{ l.basePrice }}</td>
+            <td>{{ l.quantity }}</td>
+
+            <td *ngIf="type == 'BIDDER'">
+              <button (click)="placeBid($event, l)" [disabled]="l.startDate > today" class="btn btn-outline-success">
+                BID
+              </button>
+            </td>
+            <td>
+              <div class="live" *ngIf="l.startDate <= today">
+              <span class="badge rounded-pill bg-danger">Live
+              </span>
+              </div>
+              <div *ngIf="l.startDate > today"><span class="badge rounded-pill bg-secondary">Upcoming</span>
+              </div>
+            </td>
+            <td  *ngIf="changeText" id="ddd">
+              <div *ngIf="l.startDate <= today">
+              <span >Last date {{l.endDate}}
+              </span>
+              </div>
+              <div *ngIf="l.startDate > today"><span>Starts on {{l.startDate}}</span>
+              </div>
+            </td>
+            
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- </div> -->
+
+  <div class="col-6 mt-5 offset-0.5">
+    <app-maxbid *ngIf="flag" [data1]="sellRequest"></app-maxbid>
+    <!-- //@Input used -->
+    <app-bidderhistory *ngIf="flag" [data1]="sellRequest"></app-bidderhistory>
+    <app-bidinfo *ngIf="flag" [data]="sellRequest"></app-bidinfo>
+  </div>
+</div>

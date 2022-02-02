@@ -1,0 +1,16 @@
+
+<!-- <form (ngSubmit)="checkMaxBid()">
+    Enter the sellRequest Id : <input type="number" name="sellRequestId" [(ngModel)]=sellRequestId  /> <br />
+    <button type="submit">Max Bid</button>
+</form> -->
+<div class="card border-success mb-3" style="max-width: 100%;">
+    <div class="card-header">Last Bid:</div>
+    <div class="card-body text-success">
+      <h5 class="card-title" *ngIf="data">${{data}}</h5>
+      <p class="card-text">Make this crop yours, last date to bid is <span class="blink_me">{{data1.endDate}}</span> </p>
+      <a class="btn btn-sm btn-outline-info" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+        Previous Bids
+      </a>
+    </div>
+  </div>
+<!-- <div *ngIf="data">Min. Bid Amount: {{data}}</div> -->

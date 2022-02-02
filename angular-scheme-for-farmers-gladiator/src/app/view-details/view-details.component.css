@@ -1,0 +1,14 @@
+#bg{
+    /* background-image: url("src/assets/images/marketplace.jpg"); */
+    background-color: #263238;
+    /* background-color: #185574; */
+    /* background-color: #f1f8e9; */
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    /* box-sizing: border-box;  */
+    /* z-index: 1; */
+    position: relative;
+    backface-visibility:hidden;
+    overflow:hidden ;
+   /* background-color:#fff; */
+  }

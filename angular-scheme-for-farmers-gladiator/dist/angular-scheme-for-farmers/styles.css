@@ -1,0 +1,26 @@
+/* You can add global styles to this file, and also import other style files */
+html,
+body {
+  height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  /* box-sizing: border-box; */
+  /* height: 100%; */
+ 
+}
+#bg{
+  /* background-image: url("src/assets/images/marketplace.jpg"); */
+  background-color: #263238;
+  /* background-color: #185574; */
+  /* background-color: #f1f8e9; */
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  /* box-sizing: border-box;  */
+  /* z-index: 1; */
+  position: relative;
+  -webkit-backface-visibility:hidden;
+          backface-visibility:hidden;
+  overflow:hidden ;
+ /* background-color:#fff; */
+}
+
+/*# sourceMappingURL=styles.css.map*/

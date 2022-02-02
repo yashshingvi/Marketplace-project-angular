@@ -1,0 +1,41 @@
+<!-- <p>bidderhistory works!</p> -->
+<!-- <div *ngIf="data">Min. Bid Amount: {{data}}</div> -->
+<!-- <form (ngSubmit)="showAllBid()">
+    Enter your Id : <input type="number" name="bidderId" [(ngModel)]=bidderId /> <br />
+    <button type="submit">Fetch My Bids</button>
+</form> -->
+<script>
+
+    $(document).ready(function () {
+        var myModal = document.getElementById('myModal')
+        var myInput = document.getElementById('myInput')
+        myModal.addEventListener('shown.bs.modal', function () {
+            myInput.focus()
+        })
+    });
+</script>
+
+<!-- <form (ngSubmit)="showAllSellBid()"> -->
+<!-- Enter the Sell Request Id : <input type="number" name="sellRequestId" [(ngModel)]=sellRequestId /> <br /> -->
+<!-- <button class="btn btn-link" (click)="showAllSellBid()" type="submit">
+    Previous Bids
+</button> -->
+<p>
+    <!-- <a class="btn btn-sm btn-info" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+      Previous Bids
+    </a> -->
+  </p>
+  <div class="collapse" id="collapseExample">
+    <div class="card card-body">
+        <table class = "table table-striped table-hover">
+            <tbody class = "table-striped">
+
+        <tr *ngFor="let d of data; let i = index">
+            <td>{{ i + 1 }} </td>
+            <td>{{ d.bidAmount }}</td>
+        </tr>
+    </tbody>
+        
+    </table>
+       </div>
+  </div>

@@ -1,0 +1,24 @@
+@keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+  }
+  #box {
+    /* background-color: aliceblue; */
+    /* background-image: url('\src\assets\images\LoginPage.jpg'); */
+    /* opacity: 100%; */
+    box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.75);
+    /* z-index: 1; */
+  }
+  .main {
+    border: 1px solid rgb(187, 186, 186);
+    padding: 40px;
+    width: 400px;
+    margin-top: 100px;
+    box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.75);
+  }
+  footer{
+    padding: 7px;
+    background-color:#e3e3e3;
+    /* position: relative; */
+  }

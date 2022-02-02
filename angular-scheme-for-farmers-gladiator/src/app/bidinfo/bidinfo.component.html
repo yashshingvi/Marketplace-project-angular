@@ -1,0 +1,49 @@
+
+<div class="border border-dark">
+  <table class="table table-striped table-hover table-dark">
+    <thead>
+      <tr>
+        <th>Details</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody class="table-striped table-dark">
+      <tr *ngFor="let para of parameters; let i = index">
+        <td>{{ displayParameters[i] }}</td>
+        <td>{{ data[para] }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="col mt-5">
+  <div class="alert alert-danger mt-4" role="alert" *ngIf="message=='FAILED'" style="padding:5px;">
+    {{msg}}
+  </div>
+  <div class="alert alert-success mt-4" role="alert" *ngIf="message=='SUCCESS'" style="padding:5px;">
+    {{msg}}
+  </div>
+<form (ngSubmit)="placebid()">
+    <div class="card">
+        <h5 class="card-header">Enter Bid Amount</h5>
+        <div class="card-body"> 
+            <div class="input-group mb-3">
+            <span class="input-group-text">$</span>
+            <input
+            type="number"
+            name="t1"
+            [(ngModel)]="bid.bidAmount"
+            class="form-control"
+            aria-label="Dollar amount (with dot and two decimal places)"
+            step="50"
+            />
+           <button class="btn btn-success" type="submit">Place Bid</button>
+          
+        </div>
+      </div>
+  </div>
+</form>
+
+</div>
+
+  

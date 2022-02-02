@@ -1,0 +1,49 @@
+<!-- <div class="container h-100">
+    <div class="row h-100 justify-content-center align-items-center"> -->
+        <div class="container min-vh-100 min-vw-100" id="bg">
+        <div class="row">
+            <div class="col-2 mt-5 ">
+
+
+                <div class="bg-light border-right" id="sidebar-wrapper">
+                    
+                    <div class="list-group list-group-flush">
+                        <a routerLink="#" (click)="onGoToPage1()"
+                            [className]="f1 ? 'dis' : 'list-group-item list-group-item-action bg-light'">Marketplace</a><br>
+                        <a routerLink="#" (click)="onGoToPage2()"
+                            [className]="f2 ? 'dis' : 'list-group-item list-group-item-action bg-light'">View
+                            Profile</a><br>
+                            <!-- <a routerLink="/viewDetails" (click)="onGoToPage2()"
+                            [className]="f2 ? 'dis' : 'list-group-item list-group-item-action bg-light'">View
+                            Profile</a><br> -->
+                        <a routerLink="#" (click)="onGoToPage3()"
+                            [className]="f3 ? 'dis' : 'list-group-item list-group-item-action bg-light'">Edit
+                            Profile</a><br>
+                        <a routerLink="#" (click)="onGoToPage4()"
+                            [className]="f4 ? 'dis' : 'list-group-item list-group-item-action bg-light'">History</a><br>
+                        <a routerLink="#" (click)="onGoToPage5()"
+                            [className]="f5 ? 'dis' : 'list-group-item list-group-item-action bg-light'">Change
+                            Password</a><br>
+                            <a routerLink=""
+                            [className]="'list-group-item list-group-item-action bg-light'">Log Out
+                            </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-9 offset-0.5">
+                <app-get-active-sell-request *ngIf="f1"></app-get-active-sell-request>
+                <app-view-details *ngIf="f2"></app-view-details>
+                <app-edit-component *ngIf="f3"></app-edit-component>
+                <app-set-password *ngIf="f5"></app-set-password>
+                <app-show-history *ngIf="f4"></app-show-history>
+                <!-- <router-outlet></router-outlet> -->
+                <!-- <router-outlet name="sec"></router-outlet> -->
+            </div>
+
+        </div>
+        </div>
+        
+    <!-- </div>
+</div> -->

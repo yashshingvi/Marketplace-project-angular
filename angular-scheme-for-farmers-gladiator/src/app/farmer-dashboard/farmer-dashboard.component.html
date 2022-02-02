@@ -1,0 +1,66 @@
+<!-- <div class="row">
+<app-marketplace></app-marketplace>
+<div class="col lg-3 mt-5">
+    <a routerLink="../viewDetails">View Profile</a><br>
+    <a routerLink="../farmerEditProfile">Edit Profile</a><br>
+    <a routerLink="">View History</a><br>
+    <a routerLink="../setPassword">Change Password</a> <br>
+    <a routerLink="../sellRequest">Place Sell request</a>
+</div>
+
+    <div class="col lg-8 mt-5">
+<app-get-active-sell-request></app-get-active-sell-request>
+</div>
+</div> -->
+<!-- <div class="container h-100">
+    <div class="row h-100 justify-content-center align-items-center"> -->
+        <div class="container min-vh-100 min-vw-100" id="bg">
+        <div class="row">
+            <div class="col-2 mt-5 ">
+
+
+                <div class="bg-light border-right" id="sidebar-wrapper">
+                    
+                    <div class="list-group list-group-flush">
+                        
+                        <a routerLink="#" (click)="onGoToPage6()"
+                            [className]="f6 ? 'dis' : 'list-group-item list-group-item-action bg-light'">Sell Your Crop</a><br>
+                             <a routerLink="#" (click)="onGoToPage1()"
+                            [className]="f1 ? 'dis' : 'list-group-item list-group-item-action bg-light'">Marketplace</a><br>
+                        <a routerLink="#" (click)="onGoToPage2()"
+                            [className]="f2 ? 'dis' : 'list-group-item list-group-item-action bg-light'">View
+                            Profile</a><br>
+                        <a routerLink="#" (click)="onGoToPage3()"
+                            [className]="f3 ? 'dis' : 'list-group-item list-group-item-action bg-light'">Edit
+                            Profile</a><br>
+                        <a routerLink="#" (click)="onGoToPage4()"
+                            [className]="f4 ? 'dis' : 'list-group-item list-group-item-action bg-light'">History</a><br>
+                        <a routerLink="#" (click)="onGoToPage5()"
+                            [className]="f5 ? 'dis' : 'list-group-item list-group-item-action bg-light'">Change
+                            Password</a><br>
+                        <a routerLink="#" (click)="onGoToPage7()"
+                            [className]="f7 ? 'dis' : 'list-group-item list-group-item-action bg-light'">Upload Certificate
+                        </a><br>
+                        <a routerLink=""
+                            [className]="'list-group-item list-group-item-action bg-light'">Log Out
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-9 offset-0.5">
+                <app-place-sellrequest *ngIf="f6"></app-place-sellrequest>
+                <app-get-active-sell-request *ngIf="f1"></app-get-active-sell-request>
+                <app-view-details *ngIf="f2"></app-view-details>
+                <app-editprofilefarmer *ngIf="f3"></app-editprofilefarmer>
+                <app-set-password *ngIf="f5"></app-set-password>
+                <app-show-history *ngIf="f4"></app-show-history>
+                <app-pic-upload *ngIf="f7"></app-pic-upload>
+                <!-- <router-outlet name="sec"></router-outlet> -->
+            </div>
+
+        </div>
+    </div>
+    <!-- </div>
+</div> -->

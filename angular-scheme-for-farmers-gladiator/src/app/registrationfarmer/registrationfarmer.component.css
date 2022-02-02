@@ -1,0 +1,14 @@
+html, body {
+    height: 100vh;
+  }
+  .container, .row.justify-content-center.align-items-center {
+    height: 100%;
+    min-height: 100%;
+  }
+  .main{
+      border: 1px solid rgb(187, 186, 186);
+      padding : 50px;
+  }
+ legend{
+    color: white;
+  }

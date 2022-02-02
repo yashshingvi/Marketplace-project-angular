@@ -1,0 +1,21 @@
+.live{
+    animation: blinker 1s linear infinite;
+    /* border :solid 1px ; */
+    /* color: red; */
+}
+#white{
+    /* background-color: aliceblue; */
+    /* background-blend-mode: normal; */
+/* z-index: 2; */
+/* backface-visibility: hidden; */
+/* overflow:hidden ; */
+    /* background-color:#fff; */
+    background: transparent;
+}
+
+/* #ddd{
+    display:none;
+}
+#tbl1:hover{
+    
+} */

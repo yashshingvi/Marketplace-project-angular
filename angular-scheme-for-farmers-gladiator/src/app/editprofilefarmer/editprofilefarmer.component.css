@@ -1,0 +1,23 @@
+html, body {
+    height: 100vh;
+  }
+  .container, .row.justify-content-center.align-items-center {
+    height: 100%;
+    min-height: 100%;
+  }
+  .main{
+      border: 1px solid rgb(187, 186, 186);
+      padding : 50px;
+  }
+  .main {
+    border: 1px solid rgb(187, 186, 186);
+    padding: 40px;
+    /* width: 700px;
+    margin: auto; */
+    /* margin-top: 100px; */
+    box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.75);
+    /* background-color: aliceblue; */
+  }
+  legend{
+    color: white;
+  }

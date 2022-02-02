@@ -1,0 +1,225 @@
+ <div class="container min-vh-100 min-vw-100" id="bg">
+  <div class="row h-100 justify-content-center align-items-center">
+    <div class="container" style="margin-top: 70px">
+      <div class="row">
+        <div class="col-md-6 offset-md-3">
+          <div>
+            <div *ngIf="response">
+              <div class="alert alert-danger mt-4" role="alert" *ngIf="response.status == 'FAILED'"
+                style="padding: 5px">
+                {{ response.message }}
+              </div>
+              <div class="alert alert-success mt-4" role="alert" *ngIf="response.status == 'SUCCESS'"
+                style="padding: 5px">
+                {{ response.message }}
+              </div>
+            </div>
+            <form class="was-validated needs-validation" #registerForm="ngForm"
+              (ngSubmit)="registerForm.form.valid && register()" novalidate>
+              <fieldset>
+                <legend style="text-align: center">REGISTRATION FARMER</legend>
+                <div class="form-group">
+                  <div class="input-group input-group-sm mb-3 has-validation">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="inputGroup-sizing-sm">
+                        <i class="fa fa-user icon"></i></span>
+                    </div>
+                    <input type="text" class="form-control is-invalid" aria-label="Small"
+                      aria-describedby="inputGroup-sizing-sm" name="t1" placeholder="Full Name"
+                      [(ngModel)]="farmer.name" #t1="ngModel" required />
+                    <!-- <small class="text-danger"
+          *ngIf="(t1.touched || registerForm.submitted) && t1.errors?.required">
+          Name is required 
+          </small>  -->
+                  </div>
+                  <div class="input-group input-group-sm mb-3 has-validation">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="inputGroup-sizing-sm">
+                        <i class="fa fa fa-phone icon"></i></span>
+                    </div>
+                    <input type="text" class="form-control is-invalid" aria-label="Small"
+                      aria-describedby="inputGroup-sizing-sm" name="t2" placeholder="Contact Number" minlength="10"
+                      [(ngModel)]="farmer.mobileNo" #t2="ngModel" required />
+                    <!-- <small class="text-danger" 
+          *ngIf="(t2.touched || registerForm.submitted) && t2.errors?.required">
+          Contact number is required
+          </small>  -->
+                    <div *ngIf="t2.errors">
+                      <div class="invalid-tooltip" *ngIf="
+                          t2.errors.minlength &&
+                          (t2.touched || registerForm.submitted)
+                        ">
+                        <!-- Phone number requiredLength is {{t2.errors.minlength?.requiredLength}} -->
+                        Please choose a unique and valid contact number
+                      </div>
+                    </div>
+                  </div>
+                  <div class="input-group input-group-sm mb-3 has-validation">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="inputGroup-sizing-sm">
+                        <i class="fa fa-envelope icon"></i></span>
+                    </div>
+                    <input type="text" class="form-control is-invalid" aria-label="Small"
+                      aria-describedby="inputGroup-sizing-sm" name="t3" placeholder="Email Address"
+                      [(ngModel)]="farmer.email" #t3="ngModel" required />
+                    <!-- <small class="text-danger"
+          *ngIf="(t3.touched || registerForm.submitted) && t3.errors?.required">
+          Email is required
+          </small>  -->
+                  </div>
+                  <div class="input-group input-group-sm mb-3 has-validation">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="inputGroup-sizing-sm">
+                        <i class="fa fa-home icon"></i></span>
+                    </div>
+                    <input type="text" class="form-control is-invalid" aria-label="Small"
+                      aria-describedby="inputGroup-sizing-sm" name="t4" placeholder="Address"
+                      [(ngModel)]="farmer.address" #t4="ngModel" required />
+                    <!-- <small class="text-danger"
+          *ngIf="(t4.touched || registerForm.submitted) && t4.errors?.required">
+          Address is required
+          </small>  -->
+                  </div>
+                  <div class="row">
+                    <div class="col md-6">
+                      <div class="input-group input-group-sm mb-3 has-validation">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="inputGroup-sizing-sm">
+                            <i class="fa fa-street-view icon"></i></span>
+                        </div>
+                        <input type="text" class="form-control is-invalid" aria-label="Small"
+                          aria-describedby="inputGroup-sizing-sm" name="t11" placeholder="Area"
+                          [(ngModel)]="farmer.area" #t11="ngModel" required />
+                        <!-- <small class="text-danger"
+          *ngIf="(t11.touched || registerForm.submitted) && t11.errors?.required">
+          Area is required
+          </small>  -->
+                      </div>
+                    </div>
+
+                    <div class="col md-6">
+                      <div class="input-group input-group-sm mb-3 has-validation">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="inputGroup-sizing-sm">
+                            <i class="fa fa-location-arrow icon"></i></span>
+                        </div>
+                        <input type="text" class="form-control is-invalid" aria-label="Small"
+                          aria-describedby="inputGroup-sizing-sm" name="t5" placeholder="City" [(ngModel)]="farmer.city"
+                          #t5="ngModel" required />
+                        <!-- <small class="text-danger"
+          *ngIf="(t5.touched || registerForm.submitted) && t5.errors?.required">
+          City is required
+          </small>  -->
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col md-6">
+                      <div class="input-group input-group-sm mb-3 has-validation">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="inputGroup-sizing-sm">
+                            <i class="fa fa-map-marker icon"></i></span>
+                        </div>
+                        <input type="text" class="form-control is-invalid" aria-label="Small"
+                          aria-describedby="inputGroup-sizing-sm" name="t6" placeholder="State"
+                          [(ngModel)]="farmer.state" #t6="ngModel" required />
+                        <!-- <small class="text-danger"
+          *ngIf="(t6.touched || registerForm.submitted) && t6.errors?.required">
+          State is required
+          </small>  -->
+                      </div>
+                    </div>
+                    <div class="col md-6">
+                      <div class="input-group input-group-sm mb-3 has-validation">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="inputGroup-sizing-sm">
+                            <i class="fa fa-map-pin icon"></i></span>
+                        </div>
+                        <input type="text" class="form-control is-invalid" aria-label="Small"
+                          aria-describedby="inputGroup-sizing-sm" name="t7" placeholder="Pincode"
+                          [(ngModel)]="farmer.pincode" #t7="ngModel" required />
+                        <!-- <small class="text-danger"
+          *ngIf="(t7.touched || registerForm.submitted) && t7.errors?.required">
+          Pincode is required
+          </small>  -->
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col md-6">
+                      <div class="input-group input-group-sm mb-3 has-validation">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="inputGroup-sizing-sm">
+                            <i class="fa fa-dollar icon"></i></span>
+                        </div>
+                        <input type="text" class="form-control is-invalid" aria-label="Small"
+                          aria-describedby="inputGroup-sizing-sm" name="t8" placeholder="Account Number"
+                          [(ngModel)]="farmer.accountNo" #t8="ngModel" required />
+                        <!-- <small class="text-danger"
+          *ngIf="(t8.touched || registerForm.submitted) && t8.errors?.required">
+          Account Number is required
+          </small>  -->
+                      </div>
+                    </div>
+
+                    <div class="col md-6">
+                      <div class="input-group input-group-sm mb-3 has-validation">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="inputGroup-sizing-sm">
+                            <i class="fa fa-dollar icon"></i></span>
+                        </div>
+                        <input type="text" class="form-control is-invalid" aria-label="Small"
+                          aria-describedby="inputGroup-sizing-sm" name="t9" placeholder="IFSC Code"
+                          [(ngModel)]="farmer.ifscCode" #t9="ngModel" required />
+                        <!-- <small class="text-danger"
+          *ngIf="(t9.touched || registerForm.submitted) && t9.errors?.required">
+          Ifsc Code is required
+          </small>  -->
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="input-group input-group-sm mb-3 has-validation">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="inputGroup-sizing-sm">
+                        <i class="fa fa-dollar icon"></i></span>
+                    </div>
+                    <input type="text" class="form-control is-invalid" aria-label="Small"
+                      aria-describedby="inputGroup-sizing-sm" name="t10" placeholder="Aadhar Number" minlength="12"
+                      [(ngModel)]="farmer.aadharNo" #t10="ngModel" required />
+                    <!-- <small class="text-danger"
+          *ngIf="(t10.touched || registerForm.submitted) && t10.errors?.required">
+          Aadhaar Number is required
+          </small> -->
+                    <div *ngIf="t10.errors">
+                      <div class="invalid-tooltip" *ngIf="
+                          t10.errors.minlength &&
+                          (t10.touched || registerForm.submitted)
+                        ">
+                        <!-- AadharNo requiredLength is {{t10.errors.minlength?.requiredLength}}</small> -->
+                        Please choose a unique and valid Aadhaar Number
+                      </div>
+                    </div>
+                  </div>
+
+                  <button class="btn btn-primary col-md-6 offset-md-3" type="submit">
+                    Register
+                  </button>
+                </div>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- address:string=""
+    city:string=""
+    state:string=""
+    pincode:string=""
+    accountNo:string=""
+    ifscCode:string="" -->

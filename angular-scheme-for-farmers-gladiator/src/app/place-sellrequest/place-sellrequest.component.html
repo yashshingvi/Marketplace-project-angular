@@ -1,0 +1,82 @@
+
+<div id="bbb" class="container h-100">
+  <div class="row h-100 justify-content-center align-items-center">
+  <div class="row main">
+    <!-- <div class="alert alert-danger" role="alert" *ngIf="response" style="padding:5px;">
+      {{response.status}} ! {{response.message}}
+    </div> -->
+    <div *ngIf="response">
+    <div class="alert alert-danger mt-4" role="alert" *ngIf="response.status=='FAILED'" style="padding:5px;">
+      {{response.message}}
+    </div> 
+    <div class="alert alert-success mt-4" role="alert" *ngIf="response.status=='SUCCESS'" style="padding:5px;">
+      {{response.message}}
+    </div>
+   </div>
+  <form  (ngSubmit)="register()" style="max-width:300px;margin:auto">
+    <h4 style="text-align: center;">PLACE SELL REQUEST</h4><br>
+  
+  
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-sm">  <i class="fa fa-leaf icon"></i></span>  
+      </div>
+      <input type="text" name="t1" [(ngModel)]=sellreq.cropName placeholder="Crop Name" required class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+    </div>
+
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-sm">  <i class="fa fa-pagelines icon"></i></span>  
+      </div>
+      <input type="text" name="t2" [(ngModel)]=sellreq.cropType placeholder="Crop Type" required class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+    </div>
+
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-sm">  <i class="fa fa-money icon"></i></span>  
+      </div>
+      <input type="text" name="t3" [(ngModel)]=sellreq.basePrice placeholder="Base Price" required class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+    </div>
+
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-sm">  <i class="fa fa-shopping-cart icon"></i></span>  
+      </div>
+      <input type="text" name="t4" [(ngModel)]=sellreq.quantity placeholder="Quantity" required class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+    </div>
+
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-sm">  <i class="fa fa-flask icon"></i></span>  
+      </div>
+      <input type="text" name="t5" [(ngModel)]=sellreq.phValue placeholder="Ph Value" required class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+    </div>
+
+    <div class="input-group input-group-sm mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-sm">  <i class="fa fa-flask icon"></i></span>  
+      </div>
+      <input type="text" name="t6" [(ngModel)]=sellreq.fertlizerType placeholder="Fertilizer Type" required class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+    </div>
+  
+    <hr>
+
+    Start Date 
+    <div class="input-group input-group-sm mb-3">
+      <input type="date" name="t7" [(ngModel)]=sellreq.startDate class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+    </div>
+  
+    End Date 
+    <div class="input-group input-group-sm mb-3">
+      <input type="date" name="t8" [(ngModel)]=sellreq.endDate class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+    </div>
+    
+    <button type="submit" class="col-sm-12 align-center btn btn-primary">CONFIRM</button>
+    
+
+  
+    <hr> 
+  </form>
+  </div>
+  </div>
+</div>

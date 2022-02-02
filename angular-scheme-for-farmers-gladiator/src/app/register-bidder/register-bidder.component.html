@@ -1,0 +1,309 @@
+<!-- <p>Registration Form</p>
+<form (ngSubmit)="register()">
+Name : <input type="text" name="t1" [(ngModel)]=b.name /><br>
+Address : <input type="text" name="t2" [(ngModel)]=b.address /><br>
+City : <input type="text" name="t3" [(ngModel)]=b.city /><br>
+State : <input type="text" name="t4" [(ngModel)]=b.state /><br>
+pinCode : <input type="text" name="t5" [(ngModel)]=b.pincode /><br>
+Mobile No : <input type="text" name="t6" [(ngModel)]=b.mobileNo /><br>
+Aadhar No : <input type="text" name="t7" [(ngModel)]=b.adhaarNo /><br>
+Account No : <input type="text" name="t8" [(ngModel)]=b.accountNo /><br>
+Trader License No : <input type="text" name="t9" [(ngModel)]=b.traderLicense /><br>
+IFSC Code : <input type="text" name="t10" [(ngModel)]=b.ifscCode /><br>
+Email : <input type="text" name="t11" [(ngModel)]=b.email /><br>
+<br>
+<button type="submit">Place SellRequest</button>   -->
+<div class="container min-vh-100 min-vw-100" id="bg">
+
+  <div class="row h-100 justify-content-center align-items-center">
+
+
+<div class="container" style="margin-top: 70px;">
+
+  <div class="row">
+
+    <div class="col-md-6 offset-md-3">
+      <!-- <h1 style="text-align: center;">REGISTRATION BIDDER</h1> -->
+      <div>
+        <div *ngIf="response">
+          <div class="alert alert-danger mt-4" role="alert" *ngIf="response.status == 'FAILED'"
+            style="padding: 5px">
+            {{ response.message }}
+          </div>
+          <div class="alert alert-success mt-4" role="alert" *ngIf="response.status == 'SUCCESS'"
+            style="padding: 5px">
+            {{ response.message }}
+          </div>
+        </div>
+<form class="was-validated needs-validation" #registerForm="ngForm" (ngSubmit)="registerForm.form.valid && register()" novalidate>
+  <fieldset>
+  <legend style="text-align: center;">REGISTRATION BIDDER</legend>
+  
+  <div class="form-group">
+    <div class="input-group input-group-sm mb-3 has-validation">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-sm"> <i class="fa fa-user icon"></i></span>  
+        </div>
+         <input type="text" class="form-control is-invalid" aria-label="Small" aria-describedby="inputGroup-sizing-sm"name="t1" placeholder="Full Name" [(ngModel)]=b.name #t1="ngModel"required/>
+        <!-- <small class="text-danger"
+        *ngIf="(t1.touched || registerForm.submitted) && t1.errors?.required">
+        Name is required 
+        </small>   -->
+    </div>
+    <div class="input-group input-group-sm mb-3 has-validation">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-sm"> <i class="fa fa-home icon"></i></span>  
+      </div>
+      <input type="text" class="form-control is-invalid" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="t2" placeholder="Address" [(ngModel)]=b.address #t2="ngModel" required />
+      <!-- <small class="text-danger"
+      *ngIf="(t2.touched || registerForm.submitted) && t2.errors?.required">
+      Address is required
+      </small>  -->
+  </div>
+
+  <div class="row">
+    <div class="col md-6">
+
+    <div class="input-group input-group-sm mb-3 has-validation">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-sm"> <i class="fa fa-location-arrow icon"></i></span>  
+    </div>
+    <input type="text" class="form-control is-invalid" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="t3" placeholder="City" [(ngModel)]=b.city #t3="ngModel" required/>
+    <!-- <small class="text-danger"
+    *ngIf="(t3.touched || registerForm.submitted) && t3.errors?.required">
+    City is required
+    </small>  -->
+    </div>
+
+    </div>
+
+    <div class="col md-6">
+    <div class="input-group input-group-sm mb-3 has-validation">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-sm"> <i class="fa fa-map-marker icon"></i></span>  
+      </div>
+      <input type="text" class="form-control is-invalid" aria-label="Small" aria-describedby="inputGroup-sizing-sm"   name="t4" placeholder="State" [(ngModel)]=b.state #t4="ngModel" required/>
+      <!-- <small class="text-danger"
+      *ngIf="(t4.touched || registerForm.submitted) && t4.errors?.required">
+      State is required
+      </small>  -->
+    </div>
+
+    </div>
+
+  </div>
+
+
+    <div class="input-group input-group-sm mb-3 has-validation">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-sm"> <i class="fa fa-map-pin icon"></i></span>  
+      </div>
+      <input type="text" class="form-control is-invalid" aria-label="Small" aria-describedby="inputGroup-sizing-sm"  name="t5" placeholder="Pincode"[(ngModel)]=b.pincode #t5="ngModel" required />
+      <!-- <small class="text-danger"
+      *ngIf="(t5.touched || registerForm.submitted) && t5.errors?.required">
+      Pincode is required
+      </small>  -->
+      </div>
+
+      <div class="row">
+        <div class="col md-6">
+
+      <div class="input-group input-group-sm mb-3 has-validation"><label class="form-label"></label>
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-sm"> <i class="fa fa fa-phone icon"></i></span>  
+      </div>
+      <input type="text" class="form-control is-invalid" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="t6" placeholder="Mobile Number" minlength="10" [(ngModel)]=b.mobileNo #t6="ngModel"required/>
+      <!-- <small class="text-danger" 
+      *ngIf="(t6.touched || registerForm.submitted) && t6.errors?.required">
+      Contact number is required
+      </small>  -->
+      <div *ngIf="t6.errors">
+      <!-- <small class="text-danger" *ngIf="t6.errors.minlength && (t6.touched || registerForm.submitted)">
+          Phone number requiredLength is {{t6.errors.minlength?.requiredLength}}
+      </small> -->
+      <div class="invalid-tooltip" *ngIf="t6.errors.minlength && (t6.touched || registerForm.submitted)">
+        <!-- Phone number requiredLength is {{t6.errors.minlength?.requiredLength}} -->
+        Please choose a unique and valid contact number
+      </div></div> 
+    </div>
+
+    </div>
+    <div class="col md-6">
+    <div class="input-group input-group-sm mb-3 has-validation">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-sm"> <i class="fa fa-dollar icon"></i></span>  
+      </div>
+      <input type="text" class="form-control is-invalid" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="t7" placeholder="Adhaar Number" minlength="12" [(ngModel)]=b.adhaarNo #t7="ngModel" required/>
+      <!-- <small class="text-danger"
+      *ngIf="(t7.touched || registerForm.submitted) && t7.errors?.required">
+      Aadhaar Number is required
+      </small> -->
+      <div *ngIf="t7.errors">
+      <small class="text-danger" 
+      *ngIf="t7.errors.minlength && (t7.touched || registerForm.submitted)">
+            <!-- AadharNo requiredLength is {{t7.errors.minlength?.requiredLength}} -->
+            Please choose a unique and valid Aadhar Number
+    </small>
+      </div>  
+
+      </div>
+
+      </div>
+      </div>
+
+
+      <div class="input-group input-group-sm mb-3 has-validation">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-sm"> <i class="fa fa-dollar icon"></i></span>  
+      </div>
+      <input type="text" class="form-control is-invalid" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="t8" placeholder="Account Number"[(ngModel)]=b.accountNo #t8="ngModel" required />
+      <!-- <small class="text-danger"
+      *ngIf="(t8.touched || registerForm.submitted) && t8.errors?.required">
+      Account Number is required
+      </small>  -->
+      </div>
+
+      <div class="row">
+        <div class="col md-6">
+
+      <div class="input-group input-group-sm mb-3 has-validation">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-sm"> <i class="fa fa-dollar icon"></i></span>  
+        </div>
+        <input type="text" class="form-control is-invalid" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="t9" placeholder="IFSC Code" [(ngModel)]=b.ifscCode #t9="ngModel" required/>
+        <!-- <small class="text-danger"
+        *ngIf="(t9.touched || registerForm.submitted) && t9.errors?.required">
+        Ifsc Code is required
+        </small>  -->
+      </div>
+
+      </div>
+      <div class="col md-6">
+
+      <div class="input-group input-group-sm mb-3 has-validation">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-sm"> <i class="fa fa-dollar icon"></i></span>  
+        </div>
+        <input type="text" class="form-control is-invalid" aria-label="Small" aria-describedby="inputGroup-sizing-sm" name="t10" placeholder="Trader License" [(ngModel)]=b.traderLicense #t10="ngModel" required/>
+        <!-- <small class="text-danger"
+        *ngIf="(t10.touched || registerForm.submitted) && t10.errors?.required">
+        TraderLicence is required
+        </small>  -->
+      </div>
+
+      </div>
+      </div>
+
+      <div class="input-group input-group-sm mb-3 has-validation">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-sm"> <i class="fa fa-envelope icon"></i></span>  
+        </div>
+        <input type="text" class="form-control is-invalid" aria-label="Small" aria-describedby="inputGroup-sizing-sm"name="t11" placeholder="Email Address" [(ngModel)]=b.email #t11="ngModel" required/>
+        <!-- <small class="text-danger"
+        *ngIf="(t11.touched || registerForm.submitted) && t11.errors?.required">
+        Email is required
+        </small>  -->
+      </div>
+
+  <!-- FullName:<input type="text" name="t1" [(ngModel)]=b.name #t1="ngModel" required/><br/>
+    <span class="text-danger"
+    *ngIf="(t1.touched || registerForm.submitted) && t1.errors?.required">
+    Name is required 
+    </span> 
+    <br/>
+    
+    Address:<input type="text" name="t2" [(ngModel)]=b.address #t2="ngModel" required/><br/>
+    <span class="text-danger" 
+    *ngIf="(t2.touched || registerForm.submitted) && t2.errors?.required">
+    Address is required
+    </span> 
+    <br/>
+
+    City:<input type="text" name="t3" [(ngModel)]=b.city #t3="ngModel" required/><br/>
+    <span class="text-danger" 
+    *ngIf="(t3.touched || registerForm.submitted) && t3.errors?.required">
+    City is required
+    </span> 
+    <br/>
+
+    State:<input type="text" name="t4" [(ngModel)]=b.state #t4="ngModel" required/><br/>
+    <span class="text-danger" 
+    *ngIf="(t4.touched || registerForm.submitted) && t4.errors?.required">
+    State is required
+    </span> 
+    <br/>
+
+    Pincode:<input type="text" name="t5" [(ngModel)]=b.pincode #t5="ngModel" required/><br/>
+    <span class="text-danger" 
+    *ngIf="(t5.touched || registerForm.submitted) && t5.errors?.required">
+    Pincode is required
+    </span> 
+    <br/>
+
+    Contact No:<input type="text" name="t6" minlength="10" [(ngModel)]=b.mobileNo #t6="ngModel"required/><br/>
+    <span class="text-danger" 
+    *ngIf="(t6.touched || registerForm.submitted) && t6.errors?.required">
+    Contact no is required
+    </span> 
+    <div *ngIf="t6.errors">
+        <span class="text-danger" *ngIf="t6.errors.minlength && (t6.touched || registerForm.submitted)">
+            Phone number requiredLength is {{t6.errors.minlength?.requiredLength}}
+        </span></div>
+    <br>
+
+    AadharNo:<input type="text" name="t7" minlength="16" [(ngModel)]=b.adhaarNo #t7="ngModel" required/><br/>
+    <span class="text-danger" 
+    *ngIf="(t7.touched || registerForm.submitted) && t7.errors?.required">
+    AadhaarNumber is required
+    </span> 
+    <div *ngIf="t7.errors">
+        <span class="text-danger" *ngIf="t7.errors.minlength && (t7.touched || registerForm.submitted)">
+            AadharNo requiredLength is {{t7.errors.minlength?.requiredLength}}
+        </span></div>
+    <br/>
+      
+    AccountNo:<input type="text" name="t8" [(ngModel)]=b.accountNo #t8="ngModel" required/><br/>
+    <span class="text-danger" 
+    *ngIf="(t8.touched || registerForm.submitted) && t8.errors?.required">
+    AccountNo is required
+    </span> 
+    <br/>
+
+    IFSCCode:<input type="text" name="t9" [(ngModel)]=b.ifscCode #t9="ngModel" required/><br/>
+    <span class="text-danger" 
+    *ngIf="(t9.touched || registerForm.submitted) && t9.errors?.required">
+    IfscCode is required
+    </span> 
+    <br/>
+
+  TraderLicence :<input type="text" name="t10" [(ngModel)]=b.traderLicense #t10="ngModel" required/><br/>
+  <span class="text-danger" 
+  *ngIf="(t10.touched || registerForm.submitted) && t10.errors?.required">
+  TraderLicence is required
+  </span> 
+  <br/>
+    
+    Email:<input type="email" name="t11" [(ngModel)]=b.email #t11="ngModel" required/><br/>
+    <span class="text-danger" 
+    *ngIf="(t11.touched || registerForm.submitted) && t11.errors?.required">
+    Email is required
+    </span> 
+    <br/> -->
+    
+    <button class="btn btn-primary col-md-6 offset-md-3" type ="submit">Register</button>
+  </div>
+</fieldset>
+  </form>
+  
+  </div>
+  </div>
+  </div>
+  </div>
+
+  </div>
+</div>
+  
+  
+  <div *ngIf=response>
+      <p>{{response.status}} ! {{response.message}}</p>
+  </div>

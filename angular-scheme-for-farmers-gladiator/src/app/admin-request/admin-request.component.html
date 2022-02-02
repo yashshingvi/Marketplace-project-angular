@@ -1,0 +1,40 @@
+<!-- <p>admin-request works!</p> -->
+<!-- <div *ngFor ="let req of requests">id:{{req.id}} type:{{req.type}} <button type="submit">View details</button> <button type="submit">approve</button></div> -->
+
+<div class="container h-100 min-vh-100 min-vw-100" id="bg">
+    <div class="row h-100 justify-content-center align-items-center">
+<div  class="border border-dark mt-4" style="width:60%;">
+    
+    <div class="alert alert-danger mt-4" role="alert" *ngIf="message=='Declined'" style="padding:5px;">
+        {{message}}
+      </div>
+      <div class="alert alert-success mt-4" role="alert" *ngIf="message=='Approved'" style="padding:5px;">
+        {{message}}
+      </div>
+<table class="table table-striped table-hover table-dark" style="padding:0px;">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Type</th>
+        <th>Details</th>
+        <th>Status</th>
+    </tr>
+    </thead>
+     <tbody class="table-striped table-dark">
+    
+        <tr *ngFor ="let req of requests">
+            <td>{{req.id}}</td>
+            <td><p class="font-italic">{{req.type}}</p></td>
+            <td><button class="btn btn-link btn-md" (click)="viewDetails($event, req)">View Details</button></td>
+            <!-- <form (ngSubmit)="approve()"> -->
+             <td>   
+                <div class="report"><button class="btn btn-success btn-sm" (click)="approve($event, req)">Approve</button></div>
+                <div class="report"><button class="btn btn-danger btn-sm" (click)="decline($event, req)">Decline</button></div>
+            </td>
+            </tr>
+        </tbody>
+</table>
+</div>
+</div>   
+</div>             
+
